@@ -1,0 +1,31 @@
+body {
+}
+#player {
+  display: block;
+  margin: auto;
+}
+#search-button {
+  margin-top: 50px;
+  padding: 10px;
+  width: 150px;
+  height: 50px;
+  font-size: 25px;
+  font-family: fantasy;
+  font-weight: bold;
+  background-color: #D6D3D4;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+}
+#query {
+  margin-top: 50px;
+  font-family: fantasy;
+  width: 400px;
+  height: 50px;
+  background-color: #D6D3D3;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+  text-align: center;
+}
+#buttons {
+  text-align: center;
+  margin: auto;
+  width: 400px;
+}
