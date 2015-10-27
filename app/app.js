@@ -1,3 +1,4 @@
+$(document).ready(function() {
   var player;
   var videoId;
 
@@ -14,19 +15,26 @@
     });
   }
 
-function onPlayerReady(event) {
-  event.target.playVideo();
-}
-
-function onPlayerStateChange(event) {
-  if(event.data === YT.PlayerState.ENDED) {
-    player.seekTo(0);
+  function onPlayerReady(event) {
+    event.target.playVideo();
+    $('#query').val('');
   }
-}
 
-function searchVideo() {
-  console.log($('#query'));
-  videoId = $('#query').val().match(/https?:\/\/www\.youtube\.com\/watch\?v=([^&#!]+)/i)[1];
-  console.log(videoId);
-  getVideo(videoId);
-}
+  function onPlayerStateChange(event) {
+    console.log(event);
+    if(event.data === YT.PlayerState.ENDED) {
+      player.seekTo(0);
+    }
+  }
+
+  function searchVideo() {
+    if(player) {
+      player.destroy();
+    }
+    videoId = $('#query').val().match(/https?:\/\/www\.youtube\.com\/watch\?v=([^&#!]+)/i)[1];
+    getVideo(videoId);
+  }
+
+  $('#ytButton').on('click', searchVideo);
+
+});
