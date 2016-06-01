@@ -21,7 +21,6 @@ $(document).ready(function() {
   }
 
   function onPlayerStateChange(event) {
-    console.log(event);
     if(event.data === YT.PlayerState.ENDED) {
       player.seekTo(0);
     }
